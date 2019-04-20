@@ -70,38 +70,40 @@ User.prototype = {
     }
   },
 
-  // updateUserDetails: function(id, obj){
-  //   if(this.status === 'user'){
-  //     let userToUpdate = this.readSingleUser(id, this.status);
-  //     console.log(userToUpdate);
+  updateUserDetails: function(id, obj){
+    if(this.status === 'user'){
+      let userToUpdate = this.readSingleUser(id, this.status);
+      console.log(userToUpdate);
 
-  //     let updateUserDetails = obj;
+      let updateUserDetails = obj;
 
-  //     for(i = 0; i < db.users.length; i++){
-  //       if(db.users[i].id === userToUpdate.id){
-  //         db.users[i] = updateUserDetails;
-  //       }
-  //     }
+      for(i = 0; i < db.users.length; i++){
+        if(db.users[i].id === userToUpdate.id){
+          db.users[i] = updateUserDetails;
+        }
+      }
 
-  //     let database = JSON.stringify(db);
-  //     fs.writeFileSync('db.json', database, 'utf8');
+      let database = JSON.stringify(db);
+      fs.writeFileSync('db.json', database, 'utf8');
+      return 'Your account has been successfully updated';
 
-  //   } else if(this.status === 'admin'){
-  //     let userToUpdate = this.readSingleUser(id, this.status);
-  //     console.log(userToUpdate);
+    } else if(this.status === 'admin'){
+      let userToUpdate = this.readSingleUser(id, this.status);
+      console.log(userToUpdate);
 
-  //     let updateUserDetails = obj;
+      let updateUserDetails = obj;
 
-  //     for(i = 0; i < db.admins.length; i++){
-  //       if(db.admins[i].id = userToUpdate.id){
-  //         db.admins[i] = updateUserDetails;
-  //       }
-  //     }
+      for(i = 0; i < db.admins.length; i++){
+        if(db.admins[i].id = userToUpdate.id){
+          db.admins[i] = updateUserDetails;
+        }
+      }
 
-  //     let database = JSON.stringify(db);
-  //     fs.writeFileSync('db.json', database, 'utf8');
-  //   }
-  // },
+      let database = JSON.stringify(db);
+      fs.writeFileSync('db.json', database, 'utf8');
+      return 'Your account has been successfully updated';
+    }
+  },
 
   searchUser: function(name){
     if(typeof name === 'string' && this.status === 'user'){
