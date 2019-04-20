@@ -9,6 +9,7 @@ function User(name, email, password, status){
   this.email = email;
   this.password = password;
   this.status = status;
+  
 };
 
 
@@ -190,6 +191,6 @@ console.log(ayo.createUser());
 
 
 
-module.exports = User;
+module.exports = { User, Admin };
 
 

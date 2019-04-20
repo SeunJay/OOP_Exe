@@ -1,0 +1,23 @@
+{
+  "name": "oop_exe",
+  "version": "1.0.0",
+  "description": "Object Oriented Programming with JS",
+  "main": "user.js",
+  "dependencies": {
+    "jest": "^24.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeunJay/OOP_Exe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeunJay/OOP_Exe/issues"
+  },
+  "homepage": "https://github.com/SeunJay/OOP_Exe#readme"
+}
