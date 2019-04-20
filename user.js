@@ -28,6 +28,7 @@ User.prototype = {
       let database = JSON.stringify(db);
       fs.writeFileSync('db.json', database, 'utf8');
       console.log('Your user account has been successfully created');
+      return 'Your user account has been successfully created';
 
     } else if(this.status === "admin"){
       if(db.admins.length){
@@ -39,90 +40,92 @@ User.prototype = {
       let database = JSON.stringify(db);
       fs.writeFileSync('db.json', database, 'utf8');
       console.log('Your Admin account has been successfully created');
+      return 'Your user account has been successfully created';
     }
   },
 
-  readSingleUser: function(id, status){
-    if(typeof id === 'number' && status === 'user'){
-      //console.log(db.users);
-      for(i = 0; i < db.users.length; i++){
-        if(id === db.users[i].id){
-          return db.users[i];
-        } else {
-          console.log('ID not valid');
-        }
-      }
-    } else if(typeof id === 'number' && status === 'admin'){
+  // readSingleUser: function(id){
+  //   if(typeof id === 'number' && this.status === 'user'){
+  //     //console.log(db.users);
+  //     for(i = 0; i < db.users.length; i++){
+  //       if(id === db.users[i].id){
+  //         return db.users[i];
+  //       } else {
+  //         console.log('ID not valid');
+  //       }
+  //     }
+  //   } else if(typeof id === 'number' && this.status === 'admin'){
 
-      for(i = 0; i < db.admins.length; i++){
-        if(id === db.admins[i].id){
-          return db.admins[i];
-        } else {
-          console.log('ID not valid');
-        }
-      }
-    }
-  },
+  //     for(i = 0; i < db.admins.length; i++){
+  //       if(id === db.admins[i].id){
+  //         return db.admins[i];
+  //       } else if(id !== db.admins[i].id || this.name ===db.admins[i].name){
+  //         console.log('ID not valid');
+  //         return 'ID not valid'
+  //       }
+  //     }
+  //   }
+  // },
 
-  updateUserDetails: function(id, obj){
-    if(this.status === 'user'){
-      let userToUpdate = this.readSingleUser(id, this.status);
-      console.log(userToUpdate);
+  // updateUserDetails: function(id, obj){
+  //   if(this.status === 'user'){
+  //     let userToUpdate = this.readSingleUser(id, this.status);
+  //     console.log(userToUpdate);
 
-      let updateUserDetails = obj;
+  //     let updateUserDetails = obj;
 
-      for(i = 0; i < db.users.length; i++){
-        if(db.users[i].id === userToUpdate.id){
-          db.users[i] = updateUserDetails;
-        }
-      }
+  //     for(i = 0; i < db.users.length; i++){
+  //       if(db.users[i].id === userToUpdate.id){
+  //         db.users[i] = updateUserDetails;
+  //       }
+  //     }
 
-      let database = JSON.stringify(db);
-      fs.writeFileSync('db.json', database, 'utf8');
+  //     let database = JSON.stringify(db);
+  //     fs.writeFileSync('db.json', database, 'utf8');
 
-    } else if(this.status === 'admin'){
-      let userToUpdate = this.readSingleUser(id, this.status);
-      console.log(userToUpdate);
+  //   } else if(this.status === 'admin'){
+  //     let userToUpdate = this.readSingleUser(id, this.status);
+  //     console.log(userToUpdate);
 
-      let updateUserDetails = obj;
+  //     let updateUserDetails = obj;
 
-      for(i = 0; i < db.admins.length; i++){
-        if(db.admins[i].id = userToUpdate.id){
-          db.admins[i] = updateUserDetails;
-        }
-      }
+  //     for(i = 0; i < db.admins.length; i++){
+  //       if(db.admins[i].id = userToUpdate.id){
+  //         db.admins[i] = updateUserDetails;
+  //       }
+  //     }
 
-      let database = JSON.stringify(db);
-      fs.writeFileSync('db.json', database, 'utf8');
-    }
-  },
+  //     let database = JSON.stringify(db);
+  //     fs.writeFileSync('db.json', database, 'utf8');
+  //   }
+  // },
 
-  searchUser: function(name, status){
-    if(typeof name === 'string' && status === 'user'){
-      for(i = 0; i < db.users.length; i++){
-        if(name === db.users[i].name){
-          return db.users[i];
-        } else {
-          return false
-        }
-      }
-    } else if(typeof name === 'string' && status === 'admin'){
+  // searchUser: function(name){
+  //   if(typeof name === 'string' && this.status === 'user'){
+  //     for(i = 0; i < db.users.length; i++){
+  //       if(name === db.users[i].name){
+  //         return db.users[i];
+  //       } else {
+  //         return false
+  //       }
+  //     }
+  //   } else if(typeof name === 'string' && this.status === 'admin'){
 
-      for(i = 0; i < db.admins.length; i++){
-        if(name === db.admins[i].name){
-          return db.admins[i];
-        } else {
-          return false;
-        }
-      }
-    }
-  }
+  //     for(i = 0; i < db.admins.length; i++){
+  //       if(name === db.admins[i].name){
+  //         return db.admins[i];
+  //       } else {
+  //         return false;
+  //       }
+  //     }
+  //   }
+  // }
 
   
 }
 
 // let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
-// let john = new User('John Doe', 'joe@gmail.com', 4321, 'user');
+//let john = new User('John Doe', 'joe@gmail.com', 4321, 'user');
 // let james = new User('James Buck', 'james@gmail.com', 9871, 'user');
 //let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
 
@@ -146,51 +149,51 @@ User.prototype = {
 // console.log(seun.updateUserDetails(1, {id: 1, name: "tobis", email: "sa@yahoo.com", password: 7799, status: 'admin'}));
 // console.log(User.prototype);
 
-function Admin(name, email, password, status){
-  User.call(this, name, email, password, status)
-}
+// function Admin(name, email, password, status){
+//   User.call(this, name, email, password, status)
+// }
 
 
-Admin.prototype = Object.create(User.prototype);
-Admin.prototype.constructor = Admin;
+// Admin.prototype = Object.create(User.prototype);
+// Admin.prototype.constructor = Admin;
 
 
-Admin.prototype.readAllUsers = function(status){
-  this.status = status;
-  if(this.status ==='admin'){
-    return db.users;
-  }
-};
+// Admin.prototype.readAllUsers = function(status){
+//   this.status = status;
+//   if(this.status ==='admin'){
+//     return db.users;
+//   }
+// };
 
-Admin.prototype.deleteAUser = function(userID){
+// Admin.prototype.deleteAUser = function(userID){
 
-  if(typeof userID === 'number'){
-    for(i = 0; i < db.users.length; i++){
-      if(userID === db.users[i].id){
-         db.users.splice((db.users[i].id - 1), 1);
+//   if(typeof userID === 'number'){
+//     for(i = 0; i < db.users.length; i++){
+//       if(userID === db.users[i].id){
+//          db.users.splice((db.users[i].id - 1), 1);
 
-         let database = JSON.stringify(db);
-         fs.writeFileSync('db.json', database, 'utf8');
-      }
-    }
-  } else return 'Invalid input';
-};
+//          let database = JSON.stringify(db);
+//          fs.writeFileSync('db.json', database, 'utf8');
+//       }
+//     }
+//   } else return 'Invalid input';
+// };
 
-Admin.prototype.deleteAllUsers = function(){
-  if(db.users.length){
-     db.users.length = 0;
-  }
-  let database = JSON.stringify(db);
-  fs.writeFileSync('db.json', database, 'utf8');
-}
+// Admin.prototype.deleteAllUsers = function(){
+//   if(db.users.length){
+//      db.users.length = 0;
+//   }
+//   let database = JSON.stringify(db);
+//   fs.writeFileSync('db.json', database, 'utf8');
+// }
 
 
- let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+//  let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
 //  console.log(Admin.prototype);
-console.log(ayo.createUser());
+//console.log(ayo.createUser());
 
 
 
-module.exports = { User, Admin };
+module.exports = User;
 
 
