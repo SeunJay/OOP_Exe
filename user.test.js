@@ -90,6 +90,12 @@ describe("Testing the functionalities of a user", () => {
     expect(seun.searchUser('Seun Jay')).toEqual({id: 1, name: 'Seun Jay', email: 'seunjay@gmail.com', password: 1234, status: 'admin'})
   });
 
+  test("Should return false if the name is not a registered name", () =>{
+    //let femi = new User('femi ajayi', 'femi@gmail.com', 9845, 'admin');
+    let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
+    expect(seun.searchUser('Seun')).toBe(false)
+  });
+
 })
 
 
