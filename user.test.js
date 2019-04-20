@@ -60,11 +60,17 @@ describe("Testing the functionalities of a user", () => {
     expect(newUser).toEqual({name: 'John Doe', email: 'joe@gmail.com', password: 1111, status: 'user' });
   });
 
-//   test('Check to see that a user has been created', () => {
-//   let newUser = new User("John Doe", "joe@gmail.com", 4321, "user");
-//   expect(newUser.createUser()).toBe('Your user account has been successfully created');
+  test('Check to see that a user has been created', () => {
+  let newUser = new User("John Doe", "joe@gmail.com", 4321, "user");
+  expect(newUser.createUser()).toBe('Your user account has been successfully created');
 
-// });
+});
+
+test('Return an error message if neither user nor admin status is used', () => {
+  let newUser = new User("John Doe", "joe@gmail.com", 4321, "chairman");
+  expect(newUser.createUser()).toBe('Status used not ALLOWED');
+
+});
 
 })
 
