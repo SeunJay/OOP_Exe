@@ -41,6 +41,8 @@ User.prototype = {
       fs.writeFileSync('db.json', database, 'utf8');
       console.log('Your Admin account has been successfully created');
       return 'Your user account has been successfully created';
+    } else if(this.status !== "user" && this.status !== "admin"){
+      return 'You cannot create an account with status inputed';
     }
   },
 

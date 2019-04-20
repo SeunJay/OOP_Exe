@@ -68,7 +68,7 @@ describe("Testing the functionalities of a user", () => {
 
 test('Return an error message if neither user nor admin status is used', () => {
   let newUser = new User("John Doe", "joe@gmail.com", 4321, "chairman");
-  expect(newUser.createUser()).toBe('Status used not ALLOWED');
+  expect(newUser.createUser()).toBe('You cannot create an account with status inputed');
 
 });
 
