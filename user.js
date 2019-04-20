@@ -103,26 +103,26 @@ User.prototype = {
   //   }
   // },
 
-  // searchUser: function(name){
-  //   if(typeof name === 'string' && this.status === 'user'){
-  //     for(i = 0; i < db.users.length; i++){
-  //       if(name === db.users[i].name){
-  //         return db.users[i];
-  //       } else {
-  //         return false
-  //       }
-  //     }
-  //   } else if(typeof name === 'string' && this.status === 'admin'){
+  searchUser: function(name){
+    if(typeof name === 'string' && this.status === 'user'){
+      for(i = 0; i < db.users.length; i++){
+        if(name === db.users[i].name){
+          return db.users[i];
+        } else {
+          return false
+        }
+      }
+    } else if(typeof name === 'string' && this.status === 'admin'){
 
-  //     for(i = 0; i < db.admins.length; i++){
-  //       if(name === db.admins[i].name){
-  //         return db.admins[i];
-  //       } else {
-  //         return false;
-  //       }
-  //     }
-  //   }
-  // }
+      for(i = 0; i < db.admins.length; i++){
+        if(name === db.admins[i].name){
+          return db.admins[i];
+        } else {
+          return false;
+        }
+      }
+    }
+  }
 
   
 }
