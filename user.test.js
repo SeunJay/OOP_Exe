@@ -93,7 +93,12 @@ describe("Testing the functionalities of a user", () => {
   test("Should return false if the name is not a registered name", () =>{
     //let femi = new User('femi ajayi', 'femi@gmail.com', 9845, 'admin');
     let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
-    expect(seun.searchUser('Seun')).toBe(false)
+    expect(seun.searchUser('Seun')).toBe(false);
+  });
+
+  test("To update user details", () =>{
+    let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
+    expect(seun.updateUserDetails(1, {id: 1, name: 'Seun Jay', email: 'seunjay@gmail.com', password: 1234, status: 'admin'})).toBe('Your account has been successfully updated')
   });
 
 })
