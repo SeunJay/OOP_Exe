@@ -66,11 +66,23 @@ describe("Testing the functionalities of a user", () => {
 
 });
 
-test('Return an error message if neither user nor admin status is used', () => {
-  let newUser = new User("John Doe", "joe@gmail.com", 4321, "chairman");
-  expect(newUser.createUser()).toBe('You cannot create an account with status inputed');
+  test('Return an error message if neither user nor admin status is used', () => {
+    let newUser = new User("John Doe", "joe@gmail.com", 4321, "chairman");
+    expect(newUser.createUser()).toBe('You cannot create an account with status inputed');
 
-});
+  });
+
+  test("read user by ID", () =>{
+    let femi = new User('femi ajayi', 'femi@gmail.com', 9845, 'admin');
+    let jamesUser = femi.createUser();
+    expect(femi.readSingleUser(1)).toEqual({id: 1, name: 'femi ajayi', email: 'femi@gmail.com', password: 9845, status: 'admin'})
+  });
+
+  // test("read user by ID", () =>{
+  // let femi = new User('femi ajayi', 'femi@gmail.com', 9845, 'admin');
+  // let jamesUser = femi.createUser();
+  // expect(femi.readSingleUser(5)).toBe('ID not valid');
+
 
 })
 
