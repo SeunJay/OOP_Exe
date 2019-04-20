@@ -73,9 +73,9 @@ describe("Testing the functionalities of a user", () => {
   });
 
   test("read user by ID", () =>{
-    let femi = new User('femi ajayi', 'femi@gmail.com', 9845, 'admin');
-    let jamesUser = femi.createUser();
-    expect(femi.readSingleUser(3)).toEqual({id: 3, name: 'femi ajayi', email: 'femi@gmail.com', password: 9845, status: 'admin'})
+    //let femi = new User('femi ajayi', 'femi@gmail.com', 9845, 'admin');
+    let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
+    expect(seun.readSingleUser(1)).toEqual({id: 1, name: 'Seun Jay', email: 'seunjay@gmail.com', password: 1234, status: 'admin'})
   });
 
   test("Should return an error message when reading a user with an ivalid ID", () =>{
