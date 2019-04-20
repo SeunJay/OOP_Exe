@@ -64,7 +64,7 @@ User.prototype = {
           return db.admins[i];
         } else if(id !== db.admins[i].id || this.name ===db.admins[i].name){
           console.log('ID not valid');
-          //return 'ID not valid'
+          return 'ID not valid'
         }
       }
     }
