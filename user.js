@@ -41,33 +41,34 @@ User.prototype = {
       fs.writeFileSync('db.json', database, 'utf8');
       console.log('Your Admin account has been successfully created');
       return 'Your user account has been successfully created';
+
     } else if(this.status !== "user" && this.status !== "admin"){
       return 'You cannot create an account with status inputed';
     }
   },
 
-  // readSingleUser: function(id){
-  //   if(typeof id === 'number' && this.status === 'user'){
-  //     //console.log(db.users);
-  //     for(i = 0; i < db.users.length; i++){
-  //       if(id === db.users[i].id){
-  //         return db.users[i];
-  //       } else {
-  //         console.log('ID not valid');
-  //       }
-  //     }
-  //   } else if(typeof id === 'number' && this.status === 'admin'){
+  readSingleUser: function(id){
+    if(typeof id === 'number' && this.status === 'user'){
+      //console.log(db.users);
+      for(i = 0; i < db.users.length; i++){
+        if(id === db.users[i].id){
+          return db.users[i];
+        } else {
+          console.log('ID not valid');
+        }
+      }
+    } else if(typeof id === 'number' && this.status === 'admin'){
 
-  //     for(i = 0; i < db.admins.length; i++){
-  //       if(id === db.admins[i].id){
-  //         return db.admins[i];
-  //       } else if(id !== db.admins[i].id || this.name ===db.admins[i].name){
-  //         console.log('ID not valid');
-  //         return 'ID not valid'
-  //       }
-  //     }
-  //   }
-  // },
+      for(i = 0; i < db.admins.length; i++){
+        if(id === db.admins[i].id){
+          return db.admins[i];
+        } else if(id !== db.admins[i].id || this.name ===db.admins[i].name){
+          console.log('ID not valid');
+          //return 'ID not valid'
+        }
+      }
+    }
+  },
 
   // updateUserDetails: function(id, obj){
   //   if(this.status === 'user'){

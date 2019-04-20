@@ -75,7 +75,7 @@ describe("Testing the functionalities of a user", () => {
   test("read user by ID", () =>{
     let femi = new User('femi ajayi', 'femi@gmail.com', 9845, 'admin');
     let jamesUser = femi.createUser();
-    expect(femi.readSingleUser(1)).toEqual({id: 1, name: 'femi ajayi', email: 'femi@gmail.com', password: 9845, status: 'admin'})
+    expect(femi.readSingleUser(3)).toEqual({id: 3, name: 'femi ajayi', email: 'femi@gmail.com', password: 9845, status: 'admin'})
   });
 
   // test("read user by ID", () =>{
