@@ -64,6 +64,12 @@ describe('Testing the functionalities of an admin', () => {
     let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
     expect(olumide).toBeDefined();
   });
+
+  test("Check for the instance of the Admin Constructor", () => {
+    let olumide = new User('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
+    expect(olumide).toEqual({name: 'Olumide Ajulo', email: 'olumide@gmail.com', password: 2233, status: 'admin' });
+  });
+
 })
 
 
