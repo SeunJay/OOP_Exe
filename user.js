@@ -159,8 +159,8 @@ function Admin(name, email, password, status){
 }
 
 
-// Admin.prototype = Object.create(User.prototype);
-// Admin.prototype.constructor = Admin;
+Admin.prototype = Object.create(User.prototype);
+Admin.prototype.constructor = Admin;
 
 
 // Admin.prototype.readAllUsers = function(status){
