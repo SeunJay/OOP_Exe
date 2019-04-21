@@ -1,4 +1,4 @@
-const User = require('./user');
+const {User, Admin} = require('./user');
 const db = require('./db.json');
 
 let femi = new User('femi ajayi', 'femi@gmail.com', 9845, 'admin');

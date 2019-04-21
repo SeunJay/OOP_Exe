@@ -154,9 +154,9 @@ User.prototype = {
 // console.log(seun.updateUserDetails(1, {id: 1, name: "tobis", email: "sa@yahoo.com", password: 7799, status: 'admin'}));
 // console.log(User.prototype);
 
-// function Admin(name, email, password, status){
-//   User.call(this, name, email, password, status)
-// }
+function Admin(name, email, password, status){
+  User.call(this, name, email, password, status)
+}
 
 
 // Admin.prototype = Object.create(User.prototype);
@@ -199,6 +199,6 @@ User.prototype = {
 
 
 
-module.exports = User;
+module.exports = {User, Admin};
 
 
