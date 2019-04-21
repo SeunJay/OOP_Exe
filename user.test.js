@@ -55,6 +55,15 @@ describe("Testing the functionalities of a user", () => {
     expect(seun.updateUserDetails(1, {id: 1, name: 'Seun Jay', email: 'seunjay@gmail.com', password: 1234, status: 'admin'})).toBe('Your account has been successfully updated')
   });
 
+});
+
+describe('Testing the functionalities of an admin', () => {
+
+  test('Check to see that User constructor function is defined', () => {
+
+    let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
+    expect(olumide).toBeDefined();
+  });
 })
 
 
