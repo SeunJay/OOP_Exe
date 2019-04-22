@@ -40,7 +40,7 @@ User.prototype = {
       let database = JSON.stringify(db);
       fs.writeFileSync('db.json', database, 'utf8');
       console.log('Your Admin account has been successfully created');
-      return 'Your user account has been successfully created';
+      return 'Your admin account has been successfully created';
 
     } else if(this.status !== "user" && this.status !== "admin"){
       return 'You cannot create an account with status inputed';
@@ -167,6 +167,7 @@ Admin.prototype.readAllUsers = function(){
   //Athis.status = status;
   if(this.status ==='admin'){
     if(db.users.length > 0){
+      console.log(db.users);
       return 'These are the available users';
     } else if(db.users.length === 0){
       return 'No user available';

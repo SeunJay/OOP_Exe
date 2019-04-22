@@ -72,13 +72,19 @@ describe('Testing the functionalities of an admin', () => {
 
   test('Check to see that an admin has been created', () => {
     let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
-    expect(olumide.createUser()).toBe('Your user account has been successfully created');
+    expect(olumide.createUser()).toBe('Your admin account has been successfully created');
   
   });
 
   test('Check to see that an admin can read all users', () => {
     let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
     expect(olumide.readAllUsers()).toBe('These are the available users');
+  
+  });
+
+  test('Check to see that an admin can delete a user', () => {
+    let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
+    expect(olumide.deleteAUser()).toBe('User has been successfully deleted');
   
   });
 
