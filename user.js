@@ -191,13 +191,15 @@ Admin.prototype.deleteAUser = function(userID){
   } else return 'Invalid input';
 };
 
-// Admin.prototype.deleteAllUsers = function(){
-//   if(db.users.length){
-//      db.users.length = 0;
-//   }
-//   let database = JSON.stringify(db);
-//   fs.writeFileSync('db.json', database, 'utf8');
-// }
+Admin.prototype.deleteAllUsers = function(){
+  if(db.users.length){
+     db.users.length = 0;
+  }
+  let database = JSON.stringify(db);
+  fs.writeFileSync('db.json', database, 'utf8');
+
+  return 'All users have been successfully deleted'
+}
 
 
 //  let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
