@@ -84,7 +84,7 @@ describe('Testing the functionalities of an admin', () => {
 
   test('Check to see that an admin can delete a user', () => {
     let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
-    expect(olumide.deleteAUser()).toBe('User has been successfully deleted');
+    expect(olumide.deleteAUser(1)).toBe('User has been successfully deleted');
   
   });
 

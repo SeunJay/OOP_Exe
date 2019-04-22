@@ -176,19 +176,20 @@ Admin.prototype.readAllUsers = function(){
   }
 };
 
-// Admin.prototype.deleteAUser = function(userID){
+Admin.prototype.deleteAUser = function(userID){
 
-//   if(typeof userID === 'number'){
-//     for(i = 0; i < db.users.length; i++){
-//       if(userID === db.users[i].id){
-//          db.users.splice((db.users[i].id - 1), 1);
+  if(typeof userID === 'number'){
+    for(i = 0; i < db.users.length; i++){
+      if(userID === db.users[i].id){
+         db.users.splice((db.users[i].id - 1), 1);
 
-//          let database = JSON.stringify(db);
-//          fs.writeFileSync('db.json', database, 'utf8');
-//       }
-//     }
-//   } else return 'Invalid input';
-// };
+         let database = JSON.stringify(db);
+         fs.writeFileSync('db.json', database, 'utf8');
+         return 'User has been successfully deleted'
+      }
+    }
+  } else return 'Invalid input';
+};
 
 // Admin.prototype.deleteAllUsers = function(){
 //   if(db.users.length){
