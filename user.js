@@ -25,7 +25,7 @@ User.prototype = {
         id = 1
       }
       db.users.push({id: id, name: this.name, email: this.email, password: this.password, status: this.status});
-      let database = JSON.stringify(db);
+      let database = JSON.stringify(db, null, 2);
       fs.writeFileSync('db.json', database, 'utf8');
       console.log('Your user account has been successfully created');
       return 'Your user account has been successfully created';
@@ -37,7 +37,7 @@ User.prototype = {
         id = 1
       }
       db.admins.push({id: id, name: this.name, email: this.email, password: this.password, status: this.status});
-      let database = JSON.stringify(db);
+      let database = JSON.stringify(db, null, 2);
       fs.writeFileSync('db.json', database, 'utf8');
       console.log('Your Admin account has been successfully created');
       return 'Your admin account has been successfully created';
@@ -83,7 +83,7 @@ User.prototype = {
         }
       }
 
-      let database = JSON.stringify(db);
+      let database = JSON.stringify(db, null, 2);
       fs.writeFileSync('db.json', database, 'utf8');
       return 'Your account has been successfully updated';
 
@@ -99,7 +99,7 @@ User.prototype = {
         }
       }
 
-      let database = JSON.stringify(db);
+      let database = JSON.stringify(db, null, 2);
       fs.writeFileSync('db.json', database, 'utf8');
       return 'Your account has been successfully updated';
     }
@@ -124,15 +124,39 @@ User.prototype = {
         }
       }
     }
-  }
+  },
+
+  // createOrder: function(id, ...products){
+  //   let date = new Date();
+  //   this.id = id;
+  //   this.products = products;
+  //   this.timeOfOrder = `${date.getHours()} : ${date.getMinutes()} : ${date.getSeconds()}`;
+  //   this.dateOfOrder = `${date.getDate()} : ${date.getMonth()} : ${date.getFullYear()}`;
+
+  //   for(let i in db.users){
+  //     if(this.id === db.users[i].id){
+  //       if(db.orders.length === 0){
+  //         id = 1;
+  //       } else if(db.orders.length > 0){
+  //         id = db.orders[db.orders.length - 1].id + 1
+  //       }
+
+  //       db.orders.push({id: id, timeOfOrder: this.timeOfOrder, dateOfOrder: this.dateOfOrder, products: this.products});
+  //       let database = JSON.stringify(db, null, 2);
+  //       fs.writeFileSync('db.json', database, 'utf8');
+  //       console.log('You have successfully made an order')
+  //     }
+  //   }
+  // }
 
   
 }
 
-// let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
-//let john = new User('John Doe', 'joe@gmail.com', 4321, 'user');
-// let james = new User('James Buck', 'james@gmail.com', 9871, 'user');
+let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
+let john = new User('John Doe', 'joe@gmail.com', 4321, 'user');
+let james = new User('James Buck', 'james@gmail.com', 9871, 'user');
 //let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+
 
 //console.log(ayo.deleteAUSer(2));
 
@@ -146,6 +170,8 @@ User.prototype = {
 //console.log(seun.searchUser('Seun me', 'admin'));
 
 // console.log(seun.readSingleUser(1, 'user'));
+
+//console.log(james.createOrder(2, ['jeans', 'vintage']));
 
 
 
@@ -201,10 +227,70 @@ Admin.prototype.deleteAllUsers = function(){
   return 'All users have been successfully deleted'
 }
 
+Admin.prototype.readAllOrders = function(){
+  if(this.status === 'admin'){
+    if(db.orders.length > 0){
+      console.log(db.orders);
+      return `These are the available orders`;
+    } else if(db.orders.length === 0){
+      return `There are no orders available`;
+    }
+  }
+}
 
-//  let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+Admin.prototype.readSingleOrder = function(orderID){
+  if(this.status === 'admin'){
+    for(let i in db.orders){
+      if(orderID === db.orders[i].id){
+        console.log(db.orders[i])
+      } else {
+        return `Invalid Order ID`;
+      }
+    }
+  }
+}
+
+Admin.prototype.deleteOneOrder = function(orderID){
+  if(this.status === 'admin'){
+    for(let i in db.orders){
+      if(orderID === db.orders[i].id){
+        db.orders.splice(i, 1);
+        let database = JSON.stringify(db, null, 2);
+        fs.writeFileSync('db.json', database, 'utf8');
+      }
+    }
+  }
+}
+
+Admin.prototype.deleteAllOrders = function(){
+  if(this.status === 'admin'){
+      db.orders.length = 0;
+      let database = JSON.stringify(db, null, 2);
+      fs.writeFileSync('db.json', database, 'utf8');
+    }
+  }
+
+Admin.prototype.updateOrderDetails = function(orderID, obj){
+  let objectToUpdateOrderDetails = obj;
+  if(this.status === 'admin'){
+    for(let i in db.orders){
+      if(orderID === db.orders[i].id){
+        db.orders[i] = objectToUpdateOrderDetails;
+      }
+    }
+
+    let database = JSON.stringify(db, null, 2);
+    fs.writeFileSync('db.json', database, 'utf8');
+    return `Your order has been updated`;
+  }
+}
+
+
+//let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
 //  console.log(Admin.prototype);
 //console.log(ayo.createUser());
+
+//console.log(ayo.updateOrderDetails(1, {id: 1, timeOfOrder: "13 : 25: 03", dateOfOrder: "23: 3: 2019", products: "skirts"}))
 
 
 

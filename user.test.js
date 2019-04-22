@@ -102,6 +102,13 @@ describe('Testing the functionalities of an admin', () => {
 
 })
 
+describe('Testing user and admin order functionalities', () =>{
+  test('Check to see that a user can make an order', () =>{
+    let john = new User('John Doe', 'joe@gmail.com', 4321, 'user');
+    expect(john.makeOrder()).toBe('You have successfully made an order')
+  })
+})
+
 
 
 
