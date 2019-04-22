@@ -88,6 +88,12 @@ describe('Testing the functionalities of an admin', () => {
   
   });
 
+  test('Should return an error when something other than a number is passed in as parameter in the deleteAUser method', () => {
+    let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
+    expect(olumide.deleteAUser('1')).toBe('Invalid input');
+  
+  });
+
 })
 
 
