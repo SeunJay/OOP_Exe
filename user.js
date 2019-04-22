@@ -1,6 +1,6 @@
 const fs = require('fs');
 const db = require('./db.json');
-
+let Order = require('./Order');
 
 
 
@@ -125,36 +125,36 @@ User.prototype = {
       }
     }
   },
-
-  // createOrder: function(id, ...products){
-  //   let date = new Date();
-  //   this.id = id;
-  //   this.products = products;
-  //   this.timeOfOrder = `${date.getHours()} : ${date.getMinutes()} : ${date.getSeconds()}`;
-  //   this.dateOfOrder = `${date.getDate()} : ${date.getMonth()} : ${date.getFullYear()}`;
-
-  //   for(let i in db.users){
-  //     if(this.id === db.users[i].id){
-  //       if(db.orders.length === 0){
-  //         id = 1;
-  //       } else if(db.orders.length > 0){
-  //         id = db.orders[db.orders.length - 1].id + 1
-  //       }
-
-  //       db.orders.push({id: id, timeOfOrder: this.timeOfOrder, dateOfOrder: this.dateOfOrder, products: this.products});
-  //       let database = JSON.stringify(db, null, 2);
-  //       fs.writeFileSync('db.json', database, 'utf8');
-  //       console.log('You have successfully made an order')
-  //     }
-  //   }
-  // }
-
   
+  makeOrder : function(id, ...products) {
+    this.id = id;
+    this.products = products;
+
+    let response = "";
+
+    for(let i in db.users) {
+        if (db.users[i].id === this.id) {
+            let newOrder = new Order();
+            let OrderForm = newOrder.constructor.createOrder();
+            OrderForm.products = this.products;
+            OrderForm.userid = this.userid;
+            db.orders.push(OrderForm);
+            fs.writeFileSync('db.json', JSON.stringify(db, null, 2));
+            response = "Your order has been successfully made!.";
+            break;
+        }
+        else {
+            response = "There is no user registered with this ID";
+        }
+    }
+    console.log(response);
+    return response;
+  }
 }
 
-let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
-let john = new User('John Doe', 'joe@gmail.com', 4321, 'user');
-let james = new User('James Buck', 'james@gmail.com', 9871, 'user');
+//let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
+//let john = new User('John Doe', 'joe@gmail.com', 4321, 'user');
+//let james = new User('James Buck', 'james@gmail.com', 9871, 'user');
 //let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
 
 
@@ -171,7 +171,7 @@ let james = new User('James Buck', 'james@gmail.com', 9871, 'user');
 
 // console.log(seun.readSingleUser(1, 'user'));
 
-//console.log(james.createOrder(2, ['jeans', 'vintage']));
+//console.log(james.makeOrder(1, ['chicken', 'turkey']));
 
 
 
@@ -219,7 +219,7 @@ Admin.prototype.deleteAUser = function(userID){
 
 Admin.prototype.deleteAllUsers = function(){
   if(db.users.length){
-     db.users.length = 0;
+     //db.users.length = 0;
   }
   let database = JSON.stringify(db);
   fs.writeFileSync('db.json', database, 'utf8');
@@ -292,6 +292,10 @@ Admin.prototype.updateOrderDetails = function(orderID, obj){
 
 //console.log(ayo.updateOrderDetails(1, {id: 1, timeOfOrder: "13 : 25: 03", dateOfOrder: "23: 3: 2019", products: "skirts"}))
 
+ let james = new User('Jame Buck', 'james@gmail.com', 9871, 'user');
+
+console.log(james.createUser())
+console.log(james.makeOrder(1, "garri", "fried fish"));
 
 
 module.exports = {User, Admin};

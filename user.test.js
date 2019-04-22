@@ -84,29 +84,32 @@ describe('Testing the functionalities of an admin', () => {
 
   test('Check to see that an admin can delete a user', () => {
     let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
-    expect(olumide.deleteAUser(1)).toBe('User has been successfully deleted');
+    expect(olumide.deleteAUser(3)).toBe('User has been successfully deleted');
   
   });
 
   test('Should return an error when something other than a number is passed in as parameter in the deleteAUser method', () => {
     let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
-    expect(olumide.deleteAUser('1')).toBe('Invalid input');
+    expect(olumide.deleteAUser('3')).toBe('Invalid input');
   
   });
 
-  test('Check to see that an admin can delete all users', () => {
-    let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
-    expect(olumide.deleteAllUsers()).toBe('All users have been successfully deleted');
-  });
+  // test('Check to see that an admin can delete all users', () => {
+  //   let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
+  //   expect(olumide.deleteAllUsers()).toBe('All users have been successfully deleted');
+  // });
 
 
 })
 
 describe('Testing user and admin order functionalities', () =>{
+
   test('Check to see that a user can make an order', () =>{
-    let john = new User('John Doe', 'joe@gmail.com', 4321, 'user');
-    expect(john.makeOrder()).toBe('You have successfully made an order')
-  })
+    let james = new User('Jame Buck', 'james@gmail.com', 9871, 'user');
+    //console.log(james.makeOrder(2, ['chicken', 'turkey']));
+    expect(james.makeOrder(2, ['chicken', 'turkey'])).toBe("Your order has been successfully made!.");
+  });
+  
 })
 
 

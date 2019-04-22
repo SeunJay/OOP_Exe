@@ -1,1 +1,389 @@
-{"users":[],"admins":[{"id":1,"name":"Seun Jay","email":"seunjay@gmail.com","password":1234,"status":"admin"},{"id":1,"name":"Seun Jay","email":"seunjay@gmail.com","password":1234,"status":"admin"},{"id":1,"name":"Seun Jay","email":"seunjay@gmail.com","password":1234,"status":"admin"},{"id":1,"name":"Seun Jay","email":"seunjay@gmail.com","password":1234,"status":"admin"},{"id":2,"name":"Olumide Ajulo","email":"olumide@gmail.com","password":2233,"status":"admin"}],"orders":[{"id":1,"timeOfOrder":"13 : 25: 03","dateOfOrder":"23: 3: 2019","products":"skirts"},{"id":2,"timeOfOrder":"11 : 49 : 0","dateOfOrder":"22 : 3 : 2019","products":[["jeans","vintage"]]}]}
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "Jame Buck",
+      "email": "james@gmail.com",
+      "password": 9871,
+      "status": "user"
+    },
+    {
+      "id": 3,
+      "name": "John Doe",
+      "email": "joe@gmail.com",
+      "password": 4321,
+      "status": "user"
+    },
+    {
+      "id": 8,
+      "name": "Jame Buck",
+      "email": "james@gmail.com",
+      "password": 9871,
+      "status": "user"
+    },
+    {
+      "id": 9,
+      "name": "John Doe",
+      "email": "joe@gmail.com",
+      "password": 4321,
+      "status": "user"
+    },
+    {
+      "id": 10,
+      "name": "Jame Buck",
+      "email": "james@gmail.com",
+      "password": 9871,
+      "status": "user"
+    },
+    {
+      "id": 11,
+      "name": "John Doe",
+      "email": "joe@gmail.com",
+      "password": 4321,
+      "status": "user"
+    }
+  ],
+  "admins": [
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Olumide Ajulo",
+      "email": "olumide@gmail.com",
+      "password": 2233,
+      "status": "admin"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "timeOfOrder": "23 : 3 : 8",
+      "dateOfOrder": "22 : 3 : 2019",
+      "products": [
+        [
+          "chicken",
+          "turkey"
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "timeOfOrder": "0 : 21 : 55",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        "garri"
+      ]
+    },
+    {
+      "id": 3,
+      "timeOfOrder": "0 : 22 : 16",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        "garri"
+      ]
+    },
+    {
+      "id": 4,
+      "timeOfOrder": "0 : 25 : 2",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        "garri",
+        "fried fish"
+      ]
+    },
+    {
+      "id": 5,
+      "timeOfOrder": "0 : 25 : 15",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        "garri",
+        "fried fish"
+      ]
+    },
+    {
+      "id": 6,
+      "timeOfOrder": "0 : 27 : 30",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        "garri",
+        "fried fish"
+      ]
+    },
+    {
+      "id": 7,
+      "timeOfOrder": "0 : 27 : 54",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        "garri",
+        "fried fish"
+      ]
+    },
+    {
+      "id": 8,
+      "timeOfOrder": "0 : 28 : 54",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        [
+          "chicken",
+          "turkey"
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "timeOfOrder": "0 : 29 : 49",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        [
+          "chicken",
+          "turkey"
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "timeOfOrder": "0 : 29 : 49",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        [
+          "chicken",
+          "turkey"
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "timeOfOrder": "0 : 30 : 20",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        [
+          "chicken",
+          "turkey"
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "timeOfOrder": "0 : 30 : 20",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        [
+          "chicken",
+          "turkey"
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "timeOfOrder": "0 : 31 : 53",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        [
+          "chicken",
+          "turkey"
+        ]
+      ]
+    }
+  ]
+}
