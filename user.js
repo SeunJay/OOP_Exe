@@ -163,12 +163,17 @@ Admin.prototype = Object.create(User.prototype);
 Admin.prototype.constructor = Admin;
 
 
-// Admin.prototype.readAllUsers = function(status){
-//   this.status = status;
-//   if(this.status ==='admin'){
-//     return db.users;
-//   }
-// };
+Admin.prototype.readAllUsers = function(){
+  //Athis.status = status;
+  if(this.status ==='admin'){
+    if(db.users.length > 0){
+      return 'These are the available users';
+    } else if(db.users.length === 0){
+      return 'No user available';
+    }
+    
+  }
+};
 
 // Admin.prototype.deleteAUser = function(userID){
 

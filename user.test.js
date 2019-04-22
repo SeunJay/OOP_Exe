@@ -34,7 +34,7 @@ describe("Testing the functionalities of a user", () => {
     expect(seun.readSingleUser(1)).toEqual({id: 1, name: 'Seun Jay', email: 'seunjay@gmail.com', password: 1234, status: 'admin'})
   });
 
-  test("Should return an error message when reading a user with an ivalid ID", () =>{
+  test("Should return an error message when reading a user with an invalid ID", () =>{
   let femi = new User('femi ajayi', 'femi@gmail.com', 9845, 'admin');
   let jamesUser = femi.createUser();
   expect(femi.readSingleUser(5)).toBe('ID not valid');
@@ -73,6 +73,12 @@ describe('Testing the functionalities of an admin', () => {
   test('Check to see that an admin has been created', () => {
     let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
     expect(olumide.createUser()).toBe('Your user account has been successfully created');
+  
+  });
+
+  test('Check to see that an admin can read all users', () => {
+    let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
+    expect(olumide.readAllUsers()).toBe('These are the available users');
   
   });
 
