@@ -94,6 +94,12 @@ describe('Testing the functionalities of an admin', () => {
   
   });
 
+  test('Check to see that an admin can delete all users', () => {
+    let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
+    expect(olumide.deleteAllUsers()).toBe('All users have been successfully deleted');
+  });
+
+
 })
 
 
