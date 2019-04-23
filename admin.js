@@ -42,9 +42,9 @@ Admin.prototype.deleteAllUsers = function(){
 }
 
 
- let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+ //let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
 //  console.log(Admin.prototype);
-console.log(ayo.createUser());
+//console.log(ayo.createUser());
 
 
 

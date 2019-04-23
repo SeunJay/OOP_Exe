@@ -267,6 +267,8 @@ Admin.prototype.readSingleOrder = function(orderID){
 
 Admin.prototype.deleteOneOrder = function(orderID){
   let response = "";
+  if(typeof orderID !== 'number') return 'Invalid Input';
+  
   if(db.orders.length > 0){
     for(let i in db.orders){
       if(orderID === db.orders[i].id){
@@ -320,11 +322,11 @@ Admin.prototype.updateOrderDetails = function(orderID, obj){
 }
 
 
-let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+//let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
 //  console.log(Admin.prototype);
 //console.log(ayo.createUser());
 
-console.log(ayo.readSingleOrder(5));
+//console.log(ayo.readSingleOrder(5));
 
 //console.log(ayo.updateOrderDetails(1, {id: 1, timeOfOrder: "8 : 25: 03", dateOfOrder: "25: 3: 2019", products: "skirts"}))
 

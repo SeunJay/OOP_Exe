@@ -129,6 +129,11 @@ describe('Testing user and admin order functionalities', () =>{
     let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
     expect(ayo.deleteAllOrders()).toBe('You have succesfully deleted orders')
   });
+
+  test('check to see that an admin can delete one order', () =>{
+    let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+    expect(ayo.deleteOneOrder('3')).toBe("Invalid Input")
+  });
 })
 
 

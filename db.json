@@ -24,54 +24,37 @@
       "status": "admin"
     },
     {
-      "id": 1,
-      "name": "Seun Jay",
-      "email": "seunjay@gmail.com",
-      "password": 1234,
-      "status": "admin"
-    },
-    {
-      "id": 1,
-      "name": "Seun Jay",
-      "email": "seunjay@gmail.com",
-      "password": 1234,
-      "status": "admin"
-    },
-    {
-      "id": 1,
-      "name": "Seun Jay",
-      "email": "seunjay@gmail.com",
-      "password": 1234,
-      "status": "admin"
-    },
-    {
-      "id": 1,
-      "name": "Seun Jay",
-      "email": "seunjay@gmail.com",
-      "password": 1234,
-      "status": "admin"
-    },
-    {
-      "id": 1,
-      "name": "Seun Jay",
-      "email": "seunjay@gmail.com",
-      "password": 1234,
-      "status": "admin"
-    },
-    {
-      "id": 1,
-      "name": "Seun Jay",
-      "email": "seunjay@gmail.com",
-      "password": 1234,
-      "status": "admin"
-    },
-    {
       "id": 2,
-      "name": "Olumide Ajulo",
-      "email": "olumide@gmail.com",
-      "password": 2233,
+      "name": "Aprof",
+      "email": "aprof@gmail.com",
+      "password": 5555,
       "status": "admin"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "id": 1,
+      "timeOfOrder": "8 : 25: 03",
+      "dateOfOrder": "25: 3: 2019",
+      "products": "skirts"
+    },
+    {
+      "id": 2,
+      "timeOfOrder": "8 : 7 : 5",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        "adiddas",
+        "nike"
+      ]
+    },
+    {
+      "id": 3,
+      "timeOfOrder": "8 : 7 : 5",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        "coca-cola",
+        "pepsi"
+      ]
+    }
+  ]
 }
