@@ -88,16 +88,18 @@ describe('Testing the functionalities of an admin', () => {
   
   });
 
+  test('Return an error message when a user tries to delete all users', () => {
+    let john = new Admin('John Doe', 'joe@gmail.com', 4321, 'user');
+    expect(john.deleteAllUsers()).toBe('You are not eligible to carry out this operation');
+  });
+
   test('Should return an error when something other than a number is passed in as parameter in the deleteAUser method', () => {
     let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
     expect(olumide.deleteAUser('3')).toBe('Invalid input');
   
   });
 
-  // test('Check to see that an admin can delete all users', () => {
-  //   let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
-  //   expect(olumide.deleteAllUsers()).toBe('All users have been successfully deleted');
-  // });
+  
 
 
 })
