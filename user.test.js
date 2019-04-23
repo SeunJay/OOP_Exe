@@ -127,6 +127,12 @@ describe('Testing user and admin order functionalities', () =>{
     expect(ayo.readSingleOrder(1)).toBe(`Here is your order`)
   });
 
+  test('should return error message when an ivalid order ID is passed in', () =>{
+    let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+    expect(ayo.readSingleOrder(3)).toBe(`Invalid Order ID`)
+  });
+
+
   test('check to see that an admin can update order details', () =>{
     let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
     expect(ayo.updateOrderDetails(1, {id: 1, timeOfOrder: "1 : 25: 03", dateOfOrder: "26: 3: 2019", products: "Bags", })).toBe(`Your order has successfully been updated`);
@@ -146,6 +152,12 @@ describe('Testing user and admin order functionalities', () =>{
     let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
     expect(ayo.deleteOneOrder(1)).toBe('You have successfully deleted this order')
   });
+
+  // test('check to see that an admin can delete one order', () =>{
+  //   let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+  //   expect(ayo.deleteOneOrder(2)).toBe(`Invalid Order ID`)
+  // });
+
 
   test('check to see that an admin can delete all orders', () =>{
     let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');

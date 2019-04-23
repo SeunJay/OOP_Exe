@@ -230,7 +230,7 @@ Admin.prototype.readSingleOrder = function(orderID){
         response = `Here is your order`
         break;
       } else {
-        response =`Invalid Order ID`;
+        return `Invalid Order ID`;
       }
     }
   }
@@ -256,7 +256,6 @@ Admin.prototype.updateOrderDetails = function(orderID, obj){
       console.log(`Your order has successfully been updated`)
       return `Your order has successfully been updated`;
     }
-    else return `There are currently no orders`;
   } else return `Order ID should be a number`;
   
 }
@@ -272,7 +271,6 @@ Admin.prototype.deleteOneOrder = function(orderID){
           fs.writeFileSync('db.json', database, 'utf8');
           console.log('You have successfully deleted this order');
           return 'You have successfully deleted this order'
-          break;
         } else {
           return `Invalid Order ID`;
         }
@@ -297,26 +295,29 @@ Admin.prototype.deleteAllOrders = function(){
       console.log('You have succesfully deleted orders');
       return 'You have succesfully deleted orders';
     }
-    else {
-      return `There are currently no orders`;
-     }
+
   }
 
 
 
 let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
-console.log(john.makeOrder(1, 'chicken', 'turkey'));
+//console.log(john.createUser())
+//console.log(john.makeOrder(1, 'chicken', 'turkey'));
 //console.log(john.readSingleUser(1));
 
 let seun = new Admin('Seun Jay', 'seunjay@gmail.com', 1234, 'admin')
+//console.log(seun.createUser())
 //console.log(seun.updateOrderDetails(1, {id: 1, timeOfOrder: "1 : 25: 03", dateOfOrder: "26: 3: 2019", products: "Bags", }));
 //console.log(seun.deleteAllOrders());
-//console.log(seun.deleteAllUsers());
+//console.log(seun.deleteAUser(1));
 
 //console.log(john.updateUserDetails(1, {id: 1, name: 'John Jay', email: 'doe@gmail.com', password: 1235, status: 'user'}))
 
 let james = new User('James Smith', 'james@gmail.com', 1222, 'user')
-//console.log(james.createUser());
+//console.log(james.makeOrder(2, 'skirts', 'shoes'));
+
+let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
+//console.log(olumide.createUser())
 
 
 module.exports = {User, Admin};
