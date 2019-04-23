@@ -261,7 +261,7 @@ Admin.prototype.readSingleOrder = function(orderID){
     response = `There are currently no orders`;
   }
   console.log(response);
-  return result;
+  return response;
 }
 
 Admin.prototype.deleteOneOrder = function(orderID){

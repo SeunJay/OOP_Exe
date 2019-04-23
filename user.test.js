@@ -115,6 +115,10 @@ describe('Testing user and admin order functionalities', () =>{
     expect(ayo.readAllOrders()).toBe(`These are the available orders`)
   })
   
+  test('check to see that an admin can read an order', () =>{
+    let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+    expect(ayo.readSingleOrder(1)).toBe(`Here is your order`)
+  })
 })
 
 
