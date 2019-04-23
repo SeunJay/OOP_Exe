@@ -272,25 +272,27 @@ Admin.prototype.readSingleOrder = function(orderID){
 
 Admin.prototype.deleteOneOrder = function(orderID){
   let response = "";
-  if(typeof orderID !== 'number') return 'Invalid Input';
-
-  if(db.orders.length > 0){
-    for(let i in db.orders){
-      if(orderID === db.orders[i].id){
-        db.orders.splice(i, 1);
-        let database = JSON.stringify(db, null, 2);
-        fs.writeFileSync('db.json', database, 'utf8');
-        console.log('You have successfully deleted this order');
-        break;
-      } else {
-        response = `Invalid Order ID`;
+  if(typeof orderID === 'number'){
+    if(db.orders.length > 0){
+      for(let i in db.orders){
+        if(orderID === db.orders[i].id){
+          db.orders.splice(i, 1);
+          let database = JSON.stringify(db, null, 2);
+          fs.writeFileSync('db.json', database, 'utf8');
+          console.log('You have successfully deleted this order');
+          break;
+        } else {
+          response = `Invalid Order ID`;
+        }
       }
     }
-  }
-  else {
-   response = `There are currently no orders`;
-  }
+    else {
+     response = `There are currently no orders`;
+    }
+  
+  } else return 'Invalid Input'
 
+  
   console.log(response);
 }
 
@@ -319,11 +321,10 @@ Admin.prototype.updateOrderDetails = function(orderID, obj){
 
     let database = JSON.stringify(db, null, 2);
     fs.writeFileSync('db.json', database, 'utf8');
-    return `Your order has been updated`;
+    console.log(`Your order has successfully been updated`)
+    return `Your order has successfully been updated`;
   }
-  else {
-    return `There are currently no orders`;
-   }
+  else return `There are currently no orders`;
 }
 
 

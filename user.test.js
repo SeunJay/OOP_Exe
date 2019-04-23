@@ -122,6 +122,11 @@ describe('Testing user and admin order functionalities', () =>{
     expect(ayo.readSingleOrder(1)).toBe(`Here is your order`)
   });
 
+  test('check to see that an admin can update order details', () =>{
+    let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+    expect(ayo.updateOrderDetails(1, {id: 1, timeOfOrder: "1 : 25: 03", dateOfOrder: "26: 3: 2019", products: "Bags", })).toBe(`Your order has successfully been updated`);
+  })
+
   test('return an error when the parameter passed in is not a number', () =>{
     let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
     expect(ayo.readSingleOrder({})).toBe(`Invalid Input`)
@@ -136,6 +141,8 @@ describe('Testing user and admin order functionalities', () =>{
     let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
     expect(ayo.deleteOneOrder('3')).toBe("Invalid Input")
   });
+
+  
 })
 
 
