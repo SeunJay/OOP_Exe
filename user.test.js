@@ -109,6 +109,11 @@ describe('Testing user and admin order functionalities', () =>{
     //console.log(james.makeOrder(2, ['chicken', 'turkey']));
     expect(james.makeOrder(2, ['chicken', 'turkey'])).toBe("Your order has been successfully made!.");
   });
+
+  test('check to see that an admin can read all orders', () =>{
+    let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+    expect(ayo.readAllOrders()).toBe(`These are the available orders`)
+  })
   
 })
 
