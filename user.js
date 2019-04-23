@@ -312,19 +312,22 @@ Admin.prototype.deleteAllOrders = function(){
 
 Admin.prototype.updateOrderDetails = function(orderID, obj){
   let objectToUpdateOrderDetails = obj;
-  if(db.orders.length > 0){
-    for(let i in db.orders){
-      if(orderID === db.orders[i].id){
-        db.orders[i] = objectToUpdateOrderDetails;
+  if(typeof orderID === 'number'){
+    if(db.orders.length > 0){
+      for(let i in db.orders){
+        if(orderID === db.orders[i].id){
+          db.orders[i] = objectToUpdateOrderDetails;
+        }
       }
+  
+      let database = JSON.stringify(db, null, 2);
+      fs.writeFileSync('db.json', database, 'utf8');
+      console.log(`Your order has successfully been updated`)
+      return `Your order has successfully been updated`;
     }
-
-    let database = JSON.stringify(db, null, 2);
-    fs.writeFileSync('db.json', database, 'utf8');
-    console.log(`Your order has successfully been updated`)
-    return `Your order has successfully been updated`;
-  }
-  else return `There are currently no orders`;
+    else return `There are currently no orders`;
+  } else return `Order ID should be a number`;
+  
 }
 
 
