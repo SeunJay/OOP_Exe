@@ -34,6 +34,11 @@ describe("Testing the functionalities of a user", () => {
     expect(seun.readSingleUser(1)).toEqual({id: 1, name: 'Seun Jay', email: 'seunjay@gmail.com', password: 1234, status: 'admin'})
   });
 
+  // test("an admin reading a user by ID", () =>{
+  //   let olu = new Admin("Olumide Ajulo", "olumide@gmail.com", 2233, 'admin');
+  //   expect(olu.readSingleUser(1)).toBe({id: 1, name: "John Doe", email: 'john@gmail.com', password: 1234, status: 'user'});
+  //   });
+
   test("Should return an error message when reading a user with an invalid ID", () =>{
   let femi = new User('femi ajayi', 'femi@gmail.com', 9845, 'admin');
   let jamesUser = femi.createUser();
@@ -135,6 +140,11 @@ describe('Testing user and admin order functionalities', () =>{
   test('return an error when the parameter passed in is not a number', () =>{
     let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
     expect(ayo.readSingleOrder({})).toBe(`Invalid Input`)
+  });
+
+  test('check to see that an admin can delete one order', () =>{
+    let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+    expect(ayo.deleteOneOrder(1)).toBe('You have successfully deleted this order')
   });
 
   test('check to see that an admin can delete all orders', () =>{

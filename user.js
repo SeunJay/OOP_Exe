@@ -48,6 +48,7 @@ User.prototype = {
   },
 
   readSingleUser: function(id){
+    
     if(typeof id === 'number' && this.status === 'user'){
       //console.log(db.users);
       for(i = 0; i < db.users.length; i++){
@@ -270,20 +271,21 @@ Admin.prototype.deleteOneOrder = function(orderID){
           let database = JSON.stringify(db, null, 2);
           fs.writeFileSync('db.json', database, 'utf8');
           console.log('You have successfully deleted this order');
+          return 'You have successfully deleted this order'
           break;
         } else {
-          response = `Invalid Order ID`;
+          return `Invalid Order ID`;
         }
       }
     }
-    else {
-     response = `There are currently no orders`;
-    }
+    // else {
+    //  response = `There are currently no orders`;
+    // }
   
   } else return 'Invalid Input'
 
   
-  console.log(response);
+  //console.log(response);
 }
 
 Admin.prototype.deleteAllOrders = function(){
@@ -303,12 +305,12 @@ Admin.prototype.deleteAllOrders = function(){
 
 
 let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
-//console.log(john.makeOrder(1, 'chicken', 'turkey'));
+console.log(john.makeOrder(1, 'chicken', 'turkey'));
 //console.log(john.readSingleUser(1));
 
 let seun = new Admin('Seun Jay', 'seunjay@gmail.com', 1234, 'admin')
 //console.log(seun.updateOrderDetails(1, {id: 1, timeOfOrder: "1 : 25: 03", dateOfOrder: "26: 3: 2019", products: "Bags", }));
-console.log(seun.deleteAllOrders());
+//console.log(seun.deleteAllOrders());
 //console.log(seun.deleteAllUsers());
 
 //console.log(john.updateUserDetails(1, {id: 1, name: 'John Jay', email: 'doe@gmail.com', password: 1235, status: 'user'}))
