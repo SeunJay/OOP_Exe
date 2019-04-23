@@ -123,7 +123,12 @@ describe('Testing user and admin order functionalities', () =>{
   test('return an error when the parameter passed in is not a number', () =>{
     let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
     expect(ayo.readSingleOrder({})).toBe(`Invalid Input`)
-  })
+  });
+
+  test('check to see that an admin can delete all orders', () =>{
+    let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+    expect(ayo.deleteAllOrders()).toBe('You have succesfully deleted orders')
+  });
 })
 
 

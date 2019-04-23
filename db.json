@@ -38,6 +38,34 @@
       "status": "admin"
     },
     {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
       "id": 2,
       "name": "Olumide Ajulo",
       "email": "olumide@gmail.com",
@@ -45,41 +73,5 @@
       "status": "admin"
     }
   ],
-  "orders": [
-    {
-      "id": 1,
-      "timeOfOrder": "8 : 25: 03",
-      "dateOfOrder": "25: 3: 2019",
-      "products": "skirts"
-    },
-    {
-      "id": 2,
-      "timeOfOrder": "8 : 7 : 5",
-      "dateOfOrder": "23 : 3 : 2019",
-      "products": [
-        "adiddas",
-        "nike"
-      ]
-    },
-    {
-      "id": 3,
-      "timeOfOrder": "8 : 7 : 5",
-      "dateOfOrder": "23 : 3 : 2019",
-      "products": [
-        "coca-cola",
-        "pepsi"
-      ]
-    },
-    {
-      "id": 4,
-      "timeOfOrder": "12 : 3 : 3",
-      "dateOfOrder": "23 : 3 : 2019",
-      "products": [
-        [
-          "chicken",
-          "turkey"
-        ]
-      ]
-    }
-  ]
+  "orders": []
 }
