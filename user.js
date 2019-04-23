@@ -246,6 +246,7 @@ Admin.prototype.readSingleOrder = function(orderID){
   this.orderid = orderID
   let result = [];
   let response = "";
+  if(typeof orderID !== 'number') return `Invalid Input`;
   if(db.orders.length > 0){
     for(let i in db.orders){
       if(this.orderid === db.orders[i].id){

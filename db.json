@@ -24,10 +24,24 @@
       "status": "admin"
     },
     {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
       "id": 2,
-      "name": "Aprof",
-      "email": "aprof@gmail.com",
-      "password": 5555,
+      "name": "Olumide Ajulo",
+      "email": "olumide@gmail.com",
+      "password": 2233,
       "status": "admin"
     }
   ],
@@ -54,6 +68,17 @@
       "products": [
         "coca-cola",
         "pepsi"
+      ]
+    },
+    {
+      "id": 4,
+      "timeOfOrder": "12 : 3 : 3",
+      "dateOfOrder": "23 : 3 : 2019",
+      "products": [
+        [
+          "chicken",
+          "turkey"
+        ]
       ]
     }
   ]
