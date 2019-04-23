@@ -157,8 +157,12 @@ User.prototype = {
 //let james = new User('James Buck', 'james@gmail.com', 9871, 'user');
 //let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
 
+//console.log(john.makeOrder(1, 'chicken', 'turkey'));
+//console.log(john.makeOrder(1, 'adiddas', 'nike'));
+//console.log(john.makeOrder(1, 'coca-cola', 'pepsi'));
 
-//console.log(ayo.deleteAUSer(2));
+
+//console.log(ayo.createUser());
 
 //console.log(seun.createUser());
 //console.log(john.createUser());
@@ -219,7 +223,7 @@ Admin.prototype.deleteAUser = function(userID){
 
 Admin.prototype.deleteAllUsers = function(){
   if(db.users.length){
-     //db.users.length = 0;
+     db.users.length = 0;
   }
   let database = JSON.stringify(db);
   fs.writeFileSync('db.json', database, 'utf8');
@@ -239,40 +243,66 @@ Admin.prototype.readAllOrders = function(){
 }
 
 Admin.prototype.readSingleOrder = function(orderID){
-  if(this.status === 'admin'){
+  this.orderid = orderID
+  let result = [];
+  let response = "";
+  if(db.orders.length > 0){
     for(let i in db.orders){
-      if(orderID === db.orders[i].id){
-        console.log(db.orders[i])
+      if(this.orderid === db.orders[i].id){
+        result.push(db.orders[i]);
+        response = `Here is your order`
+        break;
       } else {
-        return `Invalid Order ID`;
+        response =`Invalid Order ID`;
       }
     }
   }
+  else {
+    response = `There are currently no orders`;
+  }
+  console.log(response);
+  return result;
 }
 
 Admin.prototype.deleteOneOrder = function(orderID){
-  if(this.status === 'admin'){
+  let response = "";
+  if(db.orders.length > 0){
     for(let i in db.orders){
       if(orderID === db.orders[i].id){
         db.orders.splice(i, 1);
         let database = JSON.stringify(db, null, 2);
         fs.writeFileSync('db.json', database, 'utf8');
+        console.log('You have successfully deleted this order');
+        break;
+      } else {
+        response = `Invalid Order ID`;
       }
     }
   }
+  else {
+   response = `There are currently no orders`;
+  }
+
+  console.log(response);
 }
 
 Admin.prototype.deleteAllOrders = function(){
-  if(this.status === 'admin'){
+    if(db.orders.length > 0){
       db.orders.length = 0;
+
       let database = JSON.stringify(db, null, 2);
       fs.writeFileSync('db.json', database, 'utf8');
+      console.log('You have succesfully deleted orders');
+      return 'You have succesfully deleted orders';
     }
+    else {
+      return `There are currently no orders`;
+     }
   }
 
 Admin.prototype.updateOrderDetails = function(orderID, obj){
   let objectToUpdateOrderDetails = obj;
-  if(this.status === 'admin'){
+  if(db.orders.length > 0){
     for(let i in db.orders){
       if(orderID === db.orders[i].id){
         db.orders[i] = objectToUpdateOrderDetails;
@@ -283,19 +313,24 @@ Admin.prototype.updateOrderDetails = function(orderID, obj){
     fs.writeFileSync('db.json', database, 'utf8');
     return `Your order has been updated`;
   }
+  else {
+    return `There are currently no orders`;
+   }
 }
 
 
-//let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
 //  console.log(Admin.prototype);
 //console.log(ayo.createUser());
 
-//console.log(ayo.updateOrderDetails(1, {id: 1, timeOfOrder: "13 : 25: 03", dateOfOrder: "23: 3: 2019", products: "skirts"}))
+console.log(ayo.readSingleOrder(5));
 
- let james = new User('Jame Buck', 'james@gmail.com', 9871, 'user');
+//console.log(ayo.updateOrderDetails(1, {id: 1, timeOfOrder: "8 : 25: 03", dateOfOrder: "25: 3: 2019", products: "skirts"}))
 
-console.log(james.createUser())
-console.log(james.makeOrder(1, "garri", "fried fish"));
+ //let james = new User('Jame Buck', 'james@gmail.com', 9871, 'user');
+
+//console.log(james.createUser())
+//console.log(james.makeOrder(1, "garri", "fried fish"));
 
 
 module.exports = {User, Admin};
