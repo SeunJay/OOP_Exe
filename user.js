@@ -207,7 +207,7 @@ Admin.prototype.readAllUsers = function(){
 };
 
 Admin.prototype.deleteAUser = function(userID){
-
+  
   if(typeof userID === 'number'){
     for(i = 0; i < db.users.length; i++){
       if(userID === db.users[i].id){
@@ -222,13 +222,18 @@ Admin.prototype.deleteAUser = function(userID){
 };
 
 Admin.prototype.deleteAllUsers = function(){
-  if(db.users.length){
-     db.users.length = 0;
+  if(this.status === 'admin'){
+    if(db.users.length){
+      db.users.length = 0;
+   }
+   let database = JSON.stringify(db);
+   fs.writeFileSync('db.json', database, 'utf8');
+ 
+   return 'All users have been successfully deleted'
+  } else {
+    return 'You are not eligible to carry out this operation'
   }
-  let database = JSON.stringify(db);
-  fs.writeFileSync('db.json', database, 'utf8');
-
-  return 'All users have been successfully deleted'
+  
 }
 
 Admin.prototype.readAllOrders = function(){
@@ -268,7 +273,7 @@ Admin.prototype.readSingleOrder = function(orderID){
 Admin.prototype.deleteOneOrder = function(orderID){
   let response = "";
   if(typeof orderID !== 'number') return 'Invalid Input';
-  
+
   if(db.orders.length > 0){
     for(let i in db.orders){
       if(orderID === db.orders[i].id){
