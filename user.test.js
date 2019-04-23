@@ -72,7 +72,7 @@ describe('Testing the functionalities of an admin', () => {
 
   test('Check to see that an admin has been created', () => {
     let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
-    expect(olumide.createUser()).toBe('Your admin account has been successfully created');
+    expect(olumide.createUser()).toBe('Your Admin account has been successfully created');
   
   });
 

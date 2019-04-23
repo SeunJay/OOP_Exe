@@ -3,15 +3,15 @@
     {
       "id": 1,
       "name": "John Doe",
-      "email": "joe@gmail.com",
-      "password": 4321,
+      "email": "john@gmail.com",
+      "password": 1234,
       "status": "user"
     },
     {
       "id": 2,
-      "name": "James Buck",
-      "email": "james@gmail.com",
-      "password": 9871,
+      "name": "John Doe",
+      "email": "joe@gmail.com",
+      "password": 4321,
       "status": "user"
     }
   ],
@@ -24,37 +24,89 @@
       "status": "admin"
     },
     {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Seun Jay",
+      "email": "seunjay@gmail.com",
+      "password": 1234,
+      "status": "admin"
+    },
+    {
       "id": 2,
-      "name": "Aprof",
-      "email": "aprof@gmail.com",
-      "password": 5555,
+      "name": "Olumide Ajulo",
+      "email": "olumide@gmail.com",
+      "password": 2233,
       "status": "admin"
     }
   ],
-  "orders": [
-    {
-      "id": 1,
-      "timeOfOrder": "8 : 25: 03",
-      "dateOfOrder": "25: 3: 2019",
-      "products": "skirts"
-    },
-    {
-      "id": 2,
-      "timeOfOrder": "8 : 7 : 5",
-      "dateOfOrder": "23 : 3 : 2019",
-      "products": [
-        "adiddas",
-        "nike"
-      ]
-    },
-    {
-      "id": 3,
-      "timeOfOrder": "8 : 7 : 5",
-      "dateOfOrder": "23 : 3 : 2019",
-      "products": [
-        "coca-cola",
-        "pepsi"
-      ]
-    }
-  ]
+  "orders": []
 }

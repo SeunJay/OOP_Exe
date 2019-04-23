@@ -40,7 +40,7 @@ User.prototype = {
       let database = JSON.stringify(db, null, 2);
       fs.writeFileSync('db.json', database, 'utf8');
       console.log('Your Admin account has been successfully created');
-      return 'Your admin account has been successfully created';
+      return 'Your Admin account has been successfully created';
 
     } else if(this.status !== "user" && this.status !== "admin"){
       return 'You cannot create an account with status inputed';
@@ -240,6 +240,26 @@ Admin.prototype.readSingleOrder = function(orderID){
   return response;
 }
 
+Admin.prototype.updateOrderDetails = function(orderID, obj){
+  let objectToUpdateOrderDetails = obj;
+  if(typeof orderID === 'number'){
+    if(db.orders.length > 0){
+      for(let i in db.orders){
+        if(orderID === db.orders[i].id){
+          db.orders[i] = objectToUpdateOrderDetails;
+        }
+      }
+  
+      let database = JSON.stringify(db, null, 2);
+      fs.writeFileSync('db.json', database, 'utf8');
+      console.log(`Your order has successfully been updated`)
+      return `Your order has successfully been updated`;
+    }
+    else return `There are currently no orders`;
+  } else return `Order ID should be a number`;
+  
+}
+
 Admin.prototype.deleteOneOrder = function(orderID){
   let response = "";
   if(typeof orderID === 'number'){
@@ -280,26 +300,21 @@ Admin.prototype.deleteAllOrders = function(){
      }
   }
 
-Admin.prototype.updateOrderDetails = function(orderID, obj){
-  let objectToUpdateOrderDetails = obj;
-  if(typeof orderID === 'number'){
-    if(db.orders.length > 0){
-      for(let i in db.orders){
-        if(orderID === db.orders[i].id){
-          db.orders[i] = objectToUpdateOrderDetails;
-        }
-      }
-  
-      let database = JSON.stringify(db, null, 2);
-      fs.writeFileSync('db.json', database, 'utf8');
-      console.log(`Your order has successfully been updated`)
-      return `Your order has successfully been updated`;
-    }
-    else return `There are currently no orders`;
-  } else return `Order ID should be a number`;
-  
-}
 
+
+let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
+//console.log(john.makeOrder(1, 'chicken', 'turkey'));
+//console.log(john.readSingleUser(1));
+
+let seun = new Admin('Seun Jay', 'seunjay@gmail.com', 1234, 'admin')
+//console.log(seun.updateOrderDetails(1, {id: 1, timeOfOrder: "1 : 25: 03", dateOfOrder: "26: 3: 2019", products: "Bags", }));
+console.log(seun.deleteAllOrders());
+//console.log(seun.deleteAllUsers());
+
+//console.log(john.updateUserDetails(1, {id: 1, name: 'John Jay', email: 'doe@gmail.com', password: 1235, status: 'user'}))
+
+let james = new User('James Smith', 'james@gmail.com', 1222, 'user')
+//console.log(james.createUser());
 
 
 module.exports = {User, Admin};
