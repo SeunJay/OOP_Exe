@@ -152,37 +152,7 @@ User.prototype = {
   }
 }
 
-//let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
-//let john = new User('John Doe', 'joe@gmail.com', 4321, 'user');
-//let james = new User('James Buck', 'james@gmail.com', 9871, 'user');
-//let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
 
-//console.log(john.makeOrder(1, 'chicken', 'turkey'));
-//console.log(john.makeOrder(1, 'adiddas', 'nike'));
-//console.log(john.makeOrder(1, 'coca-cola', 'pepsi'));
-
-
-//console.log(ayo.createUser());
-
-//console.log(seun.createUser());
-//console.log(john.createUser());
-
-//console.log(james.createUser())
-
-//console.log(john.searchUser('John Doe', 'user'));
-
-//console.log(seun.searchUser('Seun me', 'admin'));
-
-// console.log(seun.readSingleUser(1, 'user'));
-
-//console.log(james.makeOrder(1, ['chicken', 'turkey']));
-
-
-
-
-
-// console.log(seun.updateUserDetails(1, {id: 1, name: "tobis", email: "sa@yahoo.com", password: 7799, status: 'admin'}));
-// console.log(User.prototype);
 
 function Admin(name, email, password, status){
   User.call(this, name, email, password, status)
@@ -330,19 +300,6 @@ Admin.prototype.updateOrderDetails = function(orderID, obj){
   
 }
 
-
-//let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
-//  console.log(Admin.prototype);
-//console.log(ayo.createUser());
-
-//console.log(ayo.readSingleOrder(5));
-
-//console.log(ayo.updateOrderDetails(1, {id: 1, timeOfOrder: "8 : 25: 03", dateOfOrder: "25: 3: 2019", products: "skirts"}))
-
- //let james = new User('Jame Buck', 'james@gmail.com', 9871, 'user');
-
-//console.log(james.createUser())
-//console.log(james.makeOrder(1, "garri", "fried fish"));
 
 
 module.exports = {User, Admin};
