@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jest"
+    "test": "jest --watchAll --coverage"
   },
   "repository": {
     "type": "git",
