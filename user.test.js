@@ -1,5 +1,7 @@
-const {User, Admin} = require('./user');
-const db = require('./db.json');
+const User = require('./user');
+const Admin = require('./admin');
+const db = require('./db');
+const order = require('./order');
 
 let femi = new User('femi ajayi', 'femi@gmail.com', 9845, 'admin');
 
@@ -10,34 +12,40 @@ describe("Testing the functionalities of a user", () => {
 
     let john = new User('John Doe', 'joe@gmail.com', 4321, 'user');
     expect(john).toBeDefined();
-  });
+  }); 
 
   test("Check for the instance of the User Constructor", () => {
     let newUser = new User("John Doe", "joe@gmail.com", 1111, "user");
     expect(newUser).toEqual({name: 'John Doe', email: 'joe@gmail.com', password: 1111, status: 'user' });
   });
 
+  
+
   test('Check to see that a user has been created', () => {
-  let newUser = new User("John Doe", "joe@gmail.com", 4321, "user");
+  let newUser = new User("John Doe", "john@gmail.com", 1234, "user");
   expect(newUser.createUser()).toBe('Your user account has been successfully created');
 
 });
 
+test('Check to see that a user has been created', () => {
+  let newUser = new User("John Doe", "john@gmail.com", 1234, "user");
+  expect(newUser.createUser()).toBe('Your user account has been successfully created');
+
+});
+
+
   test('Return an error message if neither user nor admin status is used', () => {
-    let newUser = new User("John Doe", "joe@gmail.com", 4321, "chairman");
+    let newUser = new User("John Doe", "john@gmail.com", 4321, "chairman");
     expect(newUser.createUser()).toBe('You cannot create an account with status inputed');
 
   });
 
   test("read user by ID", () =>{
-    let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
-    expect(seun.readSingleUser(1)).toEqual({id: 1, name: 'Seun Jay', email: 'seunjay@gmail.com', password: 1234, status: 'admin'})
+    let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
+    expect(john.readSingleUser(1)).toEqual({id: 1, name: 'John Doe', email: 'john@gmail.com', password: 1234, status: 'user'})
   });
 
-  // test("an admin reading a user by ID", () =>{
-  //   let olu = new Admin("Olumide Ajulo", "olumide@gmail.com", 2233, 'admin');
-  //   expect(olu.readSingleUser(1)).toBe({id: 1, name: "John Doe", email: 'john@gmail.com', password: 1234, status: 'user'});
-  //   });
+
 
   test("Should return an error message when reading a user with an invalid ID", () =>{
   let femi = new User('femi ajayi', 'femi@gmail.com', 9845, 'admin');
@@ -46,16 +54,28 @@ describe("Testing the functionalities of a user", () => {
   });
 
   test("search user by name", () =>{
-    let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
-    expect(seun.searchUser('Seun Jay')).toEqual({id: 1, name: 'Seun Jay', email: 'seunjay@gmail.com', password: 1234, status: 'admin'})
+    let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
+    expect(john.searchUser('John Doe')).toEqual({id: 1, name: 'John Doe', email: 'john@gmail.com', password: 1234, status: 'user'})
   });
 
-  test("Should return false if the name is not a registered name", () =>{
+  
+
+  test("should return false if the name is not a registered name by user", () =>{
+    let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
+    expect(john.searchUser('James')).toBe(false)
+  });
+
+  test("Should return false if the name is not a registered name by admin", () =>{
     let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
     expect(seun.searchUser('Seun')).toBe(false);
   });
 
-  test("To update user details", () =>{
+  test("To update user details by user", () =>{
+    let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
+    expect(john.updateUserDetails(1, {id: 1, name: 'John Buck', email: 'joe@gmail.com', password: 1234, status: 'user'})).toBe('Your account has been successfully updated')
+  });
+
+  test("To update user details by admin", () =>{
     let seun = new User('Seun Jay', 'seunjay@gmail.com', 1234, 'admin');
     expect(seun.updateUserDetails(1, {id: 1, name: 'Seun Jay', email: 'seunjay@gmail.com', password: 1234, status: 'admin'})).toBe('Your account has been successfully updated')
   });
@@ -87,23 +107,10 @@ describe('Testing the functionalities of an admin', () => {
   
   });
 
-  test('Check to see that an admin can delete a user', () => {
-    let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
-    expect(olumide.deleteAUser(3)).toBe('User has been successfully deleted');
-  
-  });
-
-  test('Return an error message when a user tries to delete all users', () => {
-    let john = new Admin('John Doe', 'joe@gmail.com', 4321, 'user');
-    expect(john.deleteAllUsers()).toBe('You are not eligible to carry out this operation');
-  });
-
-  test('Should return an error when something other than a number is passed in as parameter in the deleteAUser method', () => {
-    let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
-    expect(olumide.deleteAUser('3')).toBe('Invalid input');
-  
-  });
-
+  // test("search user by name", () =>{
+  //   let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
+  //   expect(olumide.searchUser('Olumide Ajulo')).toEqual({id: 1, name: 'Olumide Ajulo', email: 'olumide@gmail.com', password: 2233, status: 'admin'})
+  // });
   
 
 
@@ -112,9 +119,15 @@ describe('Testing the functionalities of an admin', () => {
 describe('Testing user and admin order functionalities', () =>{
 
   test('Check to see that a user can make an order', () =>{
-    let james = new User('Jame Buck', 'james@gmail.com', 9871, 'user');
+    let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
     //console.log(james.makeOrder(2, ['chicken', 'turkey']));
-    expect(james.makeOrder(2, ['chicken', 'turkey'])).toBe("Your order has been successfully made!.");
+    expect(john.makeOrder(1, ['chicken', 'turkey'])).toBe("Your order has been successfully made!.");
+  });
+
+  test('Check to see that a user can make an order', () =>{
+    let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
+    //console.log(james.makeOrder(2, ['chicken', 'turkey']));
+    expect(john.makeOrder(1, ['chicken', 'turkey'])).toBe("Your order has been successfully made!.");
   });
 
   test('check to see that an admin can read all orders', () =>{
@@ -148,6 +161,33 @@ describe('Testing user and admin order functionalities', () =>{
     expect(ayo.readSingleOrder({})).toBe(`Invalid Input`)
   });
 
+ 
+  
+  test('Return an error message when a user tries to delete all users', () => {
+    let john = new Admin('John Doe', 'joe@gmail.com', 4321, 'user');
+    expect(john.deleteAllUsers()).toBe('You are not eligible to carry out this operation');
+  });
+
+
+  test('Should return an error when something other than a number is passed in as parameter in the deleteAUser method', () => {
+    let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
+    expect(olumide.deleteAUser('3')).toBe('Invalid input');
+  
+  });
+
+  test('Check to see that an admin can delete a user', () => {
+    let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
+    expect(olumide.deleteAUser(1)).toBe('User has been successfully deleted');
+  
+  });
+
+  test('Check to see that admin can delete all users', () => {
+    let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
+    expect(olumide.deleteAllUsers()).toBe('All users have been successfully deleted');
+  
+  });
+
+
   test('check to see that an admin can delete one order', () =>{
     let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
     expect(ayo.deleteOneOrder(1)).toBe('You have successfully deleted this order')
@@ -159,16 +199,18 @@ describe('Testing user and admin order functionalities', () =>{
   // });
 
 
-  test('check to see that an admin can delete all orders', () =>{
-    let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
-    expect(ayo.deleteAllOrders()).toBe('You have succesfully deleted orders')
-  });
+  
 
   test('check to see that an admin can delete one order', () =>{
     let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
     expect(ayo.deleteOneOrder('3')).toBe("Invalid Input")
   });
 
+  test('check to see that an admin can delete all orders', () =>{
+    let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
+    let result = ayo.deleteAllOrders();
+    expect(result).toEqual(db.orders)
+  });
   
 })
 

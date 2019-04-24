@@ -1,5 +1,4 @@
-const fs = require('fs');
-const db = require('./db.json');
+const db = require('./db');
 let User = require('./user');
 
 function Order(){
