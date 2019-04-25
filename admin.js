@@ -6,7 +6,6 @@ function Admin(name, email, password, status){
   User.call(this, name, email, password, status)
 }
 
-
 Admin.prototype = Object.create(User.prototype);
 Admin.prototype.constructor = Admin;
 
@@ -108,14 +107,11 @@ Admin.prototype.deleteOneOrder = function(orderID){
         } 
       }
     }
-    // else {
-    //  response = `There are currently no orders`;
-    // }
+    
   
   } else return 'Invalid Input'
 
   
-  //console.log(response);
 }
 
 Admin.prototype.deleteAllOrders = function(){
@@ -126,35 +122,5 @@ Admin.prototype.deleteAllOrders = function(){
   }
 
 
-  let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
-//console.log(john.createUser())
-//console.log(john.makeOrder(1, 'chicken', 'turkey'));
-//console.log(john.readSingleUser(1));
-
-let seun = new Admin('Seun Jay', 'seunjay@gmail.com', 1234, 'admin')
-//console.log(seun.createUser())
-//console.log(seun.updateOrderDetails(1, {id: 1, timeOfOrder: "1 : 25: 03", dateOfOrder: "26: 3: 2019", products: "Bags", }));
-//console.log(seun.deleteAllOrders());
-//console.log(seun.deleteAUser(1));
-
-//console.log(john.updateUserDetails(1, {id: 1, name: 'John Jay', email: 'doe@gmail.com', password: 1235, status: 'user'}))
-
-let james = new User('James Smith', 'james@gmail.com', 1222, 'user');
-//console.log(james.createUser())
-//console.log(james.makeOrder(2, 'skirts', 'shoes'));
-
-let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
-console.log(olumide.createUser())
-
-console.log(olumide.readAllUsers())
-
-console.log(olumide.deleteAUser(1))
-console.log(olumide.deleteAllUsers())
-
-console.log(olumide.readAllOrders());
-console.log(olumide.readSingleOrder(1))
-console.log(olumide.deleteOneOrder(1));
-console.log(olumide.deleteAllOrders())
-
-
+  
 module.exports = Admin;

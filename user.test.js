@@ -106,11 +106,6 @@ describe('Testing the functionalities of an admin', () => {
     expect(olumide.readAllUsers()).toBe('These are the available users');
   
   });
-
-  // test("search user by name", () =>{
-  //   let olumide = new Admin('Olumide Ajulo', 'olumide@gmail.com', 2233, 'admin');
-  //   expect(olumide.searchUser('Olumide Ajulo')).toEqual({id: 1, name: 'Olumide Ajulo', email: 'olumide@gmail.com', password: 2233, status: 'admin'})
-  // });
   
 
 
@@ -120,13 +115,11 @@ describe('Testing user and admin order functionalities', () =>{
 
   test('Check to see that a user can make an order', () =>{
     let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
-    //console.log(james.makeOrder(2, ['chicken', 'turkey']));
     expect(john.makeOrder(1, ['chicken', 'turkey'])).toBe("Your order has been successfully made!.");
   });
 
   test('Check to see that a user can make an order', () =>{
     let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
-    //console.log(james.makeOrder(2, ['chicken', 'turkey']));
     expect(john.makeOrder(1, ['chicken', 'turkey'])).toBe("Your order has been successfully made!.");
   });
 
@@ -192,14 +185,7 @@ describe('Testing user and admin order functionalities', () =>{
     let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
     expect(ayo.deleteOneOrder(1)).toBe('You have successfully deleted this order')
   });
-
-  // test('check to see that an admin can delete one order', () =>{
-  //   let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');
-  //   expect(ayo.deleteOneOrder(2)).toBe(`Invalid Order ID`)
-  // });
-
-
-  
+ 
 
   test('check to see that an admin can delete one order', () =>{
     let ayo = new Admin('Aprof', 'aprof@gmail.com', 5555, 'admin');

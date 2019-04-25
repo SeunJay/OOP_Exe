@@ -4,6 +4,7 @@ let Order = require('./Order');
 
 
 
+
 function User(name, email, password, status){
   this.name = name;
   this.email = email;
@@ -104,7 +105,7 @@ User.prototype = {
           console.log('Here is the user you searched for!')
           return db.users[i];
         } else {
-          return false
+          return false;
         }
       }
     } else if(typeof name === 'string' && this.status === 'admin'){
@@ -121,7 +122,7 @@ User.prototype = {
   
   makeOrder : function(id, ...products) {
     this.id = id;
-    this.products = products;
+    this.products = products[0];
 
     let response = "";
 
@@ -130,7 +131,6 @@ User.prototype = {
             let newOrder = new Order();
             let OrderForm = newOrder.constructor.createOrder();
             OrderForm.products = this.products;
-            OrderForm.userid = this.userid;
             db.orders.push(OrderForm);
             response = "Your order has been successfully made!.";
             break;
@@ -146,17 +146,4 @@ User.prototype = {
 
 
 
-
 module.exports = User;
-
-
-let john = new User('John Doe', 'john@gmail.com', 1234, 'user');
-console.log(john.createUser())
-
-console.log(john.readSingleUser(1));
-
-console.log(john.updateUserDetails(1, {id: 1, name: 'John Buck', email: 'john@gmail.com', password: 1234, status: 'user'}))
-
-console.log(john.searchUser('John Buck'));
-
-console.log(john.makeOrder(1, ['chicken', 'turkey']))
